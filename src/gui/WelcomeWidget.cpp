@@ -19,6 +19,8 @@
 #include "WelcomeWidget.h"
 #include "ui_WelcomeWidget.h"
 
+#include <iostream>
+
 #include "config-keepassx.h"
 #include "core/FilePath.h"
 #include "core/Config.h"
@@ -58,10 +60,13 @@ WelcomeWidget::~WelcomeWidget()
 
 void WelcomeWidget::openDatabaseFromFile(QListWidgetItem* item)
 {
+  
+  qCritical("File blaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa does not exist.");
+  
 	if (item->text().isEmpty()) {
 		return;
 	}
-	emit openDatabaseFile(item->text());
+// 	emit openDatabaseFile(item->text());
 }
 
 void WelcomeWidget::refreshLastDatabases()

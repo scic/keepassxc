@@ -18,6 +18,8 @@
 
 #include "Database.h"
 
+#include <iostream>
+
 #include <QFile>
 #include <QSaveFile>
 #include <QTextStream>
@@ -378,6 +380,8 @@ const CompositeKey& Database::key() const
 
 Database* Database::openDatabaseFile(QString fileName, CompositeKey key)
 {
+  qCritical("File blaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+    std::cout << "BLaaaaaaaaaaaa";
 
     QFile dbFile(fileName);
     if (!dbFile.exists()) {
@@ -396,6 +400,10 @@ Database* Database::openDatabaseFile(QString fileName, CompositeKey key)
         qCritical("Error while parsing the database: %s", qPrintable(reader.errorString()));
         return nullptr;
     }
+    
+    Group* root = db->rootGroup();
+    Group* autoOpen= root->findChildByName("AutoOpen");
+    qCritical("Bla %s", qPrintable(autoOpen->name()));
 
     return db;
 }

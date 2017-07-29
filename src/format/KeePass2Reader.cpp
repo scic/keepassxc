@@ -1,3 +1,5 @@
+#include <core/Group.h>
+#include <core/Group.h>
 /*
  *  Copyright (C) 2010 Felix Geyer <debfx@fobos.de>
  *
@@ -17,6 +19,7 @@
 
 #include "KeePass2Reader.h"
 
+#include <QtDebug>
 #include <QBuffer>
 #include <QFile>
 #include <QIODevice>
@@ -201,7 +204,23 @@ Database* KeePass2Reader::readDatabase(QIODevice* device, const CompositeKey& ke
             return nullptr;
         }
     }
-
+    
+    
+        
+    Group* root = db->rootGroup();
+    Group* autoOpen= root->findChildByName("AutoOpen");
+    ;
+    
+    Entry* entry;
+    foreach( entry, autoOpen->entries() ) {
+      qDebug() << entry->title();
+      
+    }
+    
+    qCritical("Bla %s", qPrintable(autoOpen->name()));
+    
+//     raiseError("zeiti");
+//     return Q_NULLPTR;
     return db.take();
 }
 

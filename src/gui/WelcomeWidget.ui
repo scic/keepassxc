@@ -73,7 +73,7 @@
    <item>
     <widget class="QLabel" name="welcomeLabel">
      <property name="text">
-      <string>Welcome to KeePassXC</string>
+      <string>Welcome to KeePassXC zeiti</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
